@@ -1,0 +1,129 @@
+[
+{
+    "buildType": "Zerg_Drone",
+    "num": 4,
+    "minerals": 50,
+    "comment": "9 supplies, 8 drones"
+},
+{
+    "buildType": "Zerg_Spawning_Pool",
+    "num": 1,
+    "minerals": 200,
+    "buildID": 1,
+    "location": "startloc",
+    "locationRange": 32
+},
+{
+    "buildType": "Zerg_Drone",
+    "num": 1,
+    "minerals": 50,
+    "comment": "9 supplies, 8 drones"
+},
+{
+    "buildType": "Zerg_Extractor",
+    "num": 1,
+    "minerals": 75,
+    "buildID": 2,
+    "comment": "9 supplies, 7 drones"
+},
+{
+    "buildType": "Zerg_Drone",
+    "num": 1,
+    "minerals": 50,
+    "comment": "9 supplies, 8 drones"
+},
+{
+    "buildType": "Zerg_Overlord",
+    "num": 1,
+    "minerals": 100,
+    "comment": "17 supplies, 8 drones"
+},
+{
+    "buildType": "Zerg_Zergling",
+    "num": 3,
+    "minerals": 150,
+    "waitBuilding": "Zerg_Spawning_Pool",
+    "waitBuildingNum": 1,
+    "comment": "17 supplies, 8 drones, 3 zerglings"
+},
+{
+    "buildType": "Zerg_Drone",
+    "num": 4,
+    "minerals": 50,
+    "comment": "17 supplies, 12 drones, 3 zerglings"
+},
+{
+    "buildType": "Zerg_Creep_Colony",
+    "num": 2,
+    "minerals": 75,
+    "buildID": 3,
+    "comment": "17 supplies, 10 drones, 3 zerglings"
+},
+{
+    "buildType": "Zerg_Sunken_Colony",
+    "num": 2,
+    "minerals": 50,
+    "comment": "17 supplies, 10 drones, 3 zerglings"
+},
+{
+    "buildType": "Zerg_Drone",
+    "num": 1,
+    "minerals": 50,
+    "comment": "17 supplies, 11 drones, 6 zerglings"
+},
+{
+    "buildType": "Zerg_Drone",
+    "num": 3,
+    "minerals": 50,
+    "comment": "25 supplies, 14 drones, 6 zerglings"
+},
+{
+    "buildType": "Zerg_Zergling",
+    "num": 3,
+    "minerals": 150,
+    "waitBuilding": "Zerg_Spawning_Pool",
+    "waitBuildingNum": 1,
+    "comment": "17 supplies, 14 drones, 6 zerglings"
+},
+{
+    "buildType": "Zerg_Hatchery",
+    "num": 1,
+    "minerals": 300,
+    "buildID": 4,
+    "location": "nearby",
+    "locationID": 3,
+    "comment": "25 supplies, 14 drones, 6 zerglings"
+},
+{
+    "buildType": "Zerg_Drone",
+    "num": 3,
+    "minerals": 50,
+    "comment": "25 supplies, 19 drones, 6 zerglings"
+},
+{
+    "buildType": "Zerg_Creep_Colony",
+    "num": 2,
+    "minerals": 75,
+    "buildID": 3,
+    "comment": "25 supplies, 18 drones, 6 zerglings"
+},
+{
+    "buildType": "Zerg_Sunken_Colony",
+    "num": 2,
+    "minerals": 50,
+    "comment": "25 supplies, 17 drones, 6 zerglings"
+},
+{
+    "buildType": "Zerg_Drone",
+    "num": 3,
+    "minerals": 50,
+    "comment": "25 supplies, 20 drones, 6 zerglings"
+},
+{
+    "buildType": "Zerg_Lair",
+    "num": 1,
+    "minerals": 150,
+    "gas": 100,
+    "comment": "25 supplies, 17 drones, 6 zerglings"
+}
+]
