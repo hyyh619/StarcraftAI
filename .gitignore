@@ -4,3 +4,6 @@
 
 /windows/c++/visualstudio/.vs/HyStarCraft/v16
 /windows/starcraft
+/windows/bin
+/windows/c++/visualstudio/Debug/HyBot
+/windows/c++/visualstudio/HyBot.vcxproj.user
