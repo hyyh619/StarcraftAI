@@ -386,6 +386,8 @@ Unit::Unit(BWAPI::Unit unit, HyBot *pBot)
     m_mapWidth        = BWAPI::Broodwar->mapWidth();
     m_mapHeight       = BWAPI::Broodwar->mapHeight();
     m_pos             = BWAPI::Broodwar->self()->getStartLocation();
+    m_lastErr         = BWAPI::Errors::Enum::None;
+    m_nSameErrCount   = 0;
 
     for (int i = 0; i < HY_GROUP_MAX; i++)
     {
@@ -636,12 +638,39 @@ void Unit::DistributeUpgradeAction(BWAPI::UnitType buildType)
 
 void Unit::PrintErr()
 {
-    BWAPI::Error err  = BWAPI::Broodwar->getLastError();
-    const char   *str = err.toString().c_str();
+    BWAPI::Error err    = BWAPI::Broodwar->getLastError();
+    const char   *str   = err.toString().c_str();
+    bool         bPrint = false;
 
-    BWAPI::Broodwar->printf("%s Err: %s\n", m_name.c_str(), str);
+    if (err == m_lastErr)
+    {
+        m_nSameErrCount++;
+        if ((m_nSameErrCount % 10) == 0)
+        {
+            bPrint = true;
+        }
+    }
+    else
+    {
+        m_nSameErrCount = 1;
+        m_lastErr       = err;
+        bPrint          = true;
+    }
 
-    TR_LOG(TR_INFO, TR_BUILDING, "%s Err: %s\n", m_name.c_str(),  str);
+    if (bPrint)
+    {
+        BWAPI::Broodwar->printf("%s Err: %s\n", m_name.c_str(), str);
+
+        if (m_currentAction == HY_ACTION_CREATING_BUILDING)
+        {
+            TR_LOG(TR_INFO, TR_BUILDING, "%s Err: %s count: %d, cannot build %s\n",
+                m_name.c_str(), str, m_nSameErrCount, m_buildType.c_str());
+        }
+        else
+        {
+            TR_LOG(TR_INFO, TR_BUILDING, "%s Err: %s count: %d\n", m_name.c_str(), str, m_nSameErrCount);
+        }
+    }
 }
 
 void Unit::CreateBuilding()
@@ -666,6 +695,13 @@ void Unit::CreateBuilding()
     if (!bRes)
     {
         PrintErr();
+
+        if (m_lastErr == BWAPI::Errors::Enum::None ||
+            m_lastErr == BWAPI::Errors::Enum::Insufficient_Space)
+        {
+            // Update failed build postion.
+            m_buildPos = buildPos;
+        }
     }
     else
     {

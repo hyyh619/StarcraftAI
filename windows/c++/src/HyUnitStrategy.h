@@ -200,6 +200,8 @@ public:
     int                  m_mapHeight;   // in tile
     BWAPI::TilePosition  m_pos;         // In tiles
     UnitAction           m_currentAction;
+    BWAPI::Error         m_lastErr;
+    int                  m_nSameErrCount;
 
     // For worker only
     int m_maxWorkersPerMineral;
