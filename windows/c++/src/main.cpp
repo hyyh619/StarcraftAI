@@ -10,7 +10,7 @@ void PlayGame();
 
 int main(int argc, char *argv[])
 {
-    size_t gameCount = 0;
+    size_t    gameCount = 0;
 
     // if we are not currently connected to BWAPI, try to reconnect
     while (!BWAPI::BWAPIClient.connect())
@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
 
 void PlayGame()
 {
-    HyBot bot;
+    HyBot    bot;
 
     // The main game loop, which continues while we are connected to BWAPI and in a game
     while (BWAPI::BWAPIClient.isConnected() && BWAPI::Broodwar->isInGame())
@@ -59,27 +59,27 @@ void PlayGame()
         {
             switch (e.getType())
             {
-            case BWAPI::EventType::MatchStart:   { bot.onStart();                       break; }
+                case BWAPI::EventType::MatchStart:   { bot.onStart();                       break; }
 
-            case BWAPI::EventType::MatchFrame:   { bot.onFrame();                       break; }
+                case BWAPI::EventType::MatchFrame:   { bot.onFrame();                       break; }
 
-            case BWAPI::EventType::MatchEnd:     { bot.onEnd(e.isWinner());             break; }
+                case BWAPI::EventType::MatchEnd:     { bot.onEnd(e.isWinner());             break; }
 
-            case BWAPI::EventType::UnitShow:     { bot.onUnitShow(e.getUnit());         break; }
+                case BWAPI::EventType::UnitShow:     { bot.onUnitShow(e.getUnit());         break; }
 
-            case BWAPI::EventType::UnitHide:     { bot.onUnitHide(e.getUnit());         break; }
+                case BWAPI::EventType::UnitHide:     { bot.onUnitHide(e.getUnit());         break; }
 
-            case BWAPI::EventType::UnitCreate:   { bot.onUnitCreate(e.getUnit());       break; }
+                case BWAPI::EventType::UnitCreate:   { bot.onUnitCreate(e.getUnit());       break; }
 
-            case BWAPI::EventType::UnitMorph:    { bot.onUnitMorph(e.getUnit());        break; }
+                case BWAPI::EventType::UnitMorph:    { bot.onUnitMorph(e.getUnit());        break; }
 
-            case BWAPI::EventType::UnitDestroy:  { bot.onUnitDestroy(e.getUnit());      break; }
+                case BWAPI::EventType::UnitDestroy:  { bot.onUnitDestroy(e.getUnit());      break; }
 
-            case BWAPI::EventType::UnitRenegade: { bot.onUnitRenegade(e.getUnit());     break; }
+                case BWAPI::EventType::UnitRenegade: { bot.onUnitRenegade(e.getUnit());     break; }
 
-            case BWAPI::EventType::UnitComplete: { bot.onUnitComplete(e.getUnit());     break; }
+                case BWAPI::EventType::UnitComplete: { bot.onUnitComplete(e.getUnit());     break; }
 
-            case BWAPI::EventType::SendText:     { bot.onSendText(e.getText());         break; }
+                case BWAPI::EventType::SendText:     { bot.onSendText(e.getText());         break; }
             }
         }
 
